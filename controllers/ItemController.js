@@ -1,10 +1,18 @@
-const { Pool } = require("pg");
-require("dotenv").config();
+const db = require("../db/itemQueries");
 
-module.exports = new Pool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT,
-})
+async function getItemDetails(req, res) {
+    const id = req.params.id;
+    try{
+        const item = await db.getItem(id);
+        if(!item){
+            res.status(404).send("Item not found!");
+        }
+        res.render("item", {item});
+    } catch (err){
+        res.status(500).send("Error fetching category or items");
+    }
+}
+
+module.exports = {
+    getItemDetails,
+}

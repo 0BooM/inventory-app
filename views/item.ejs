@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= item.name %></title>
+  </head>
+  <body>
+    <% if(item) {%> 
+        <h1>Name: <%= item.name %></h1>
+        <h2>Quantity: <%= item.quantity %></h2>
+        <h2>Category: <%= item.category_name %></h2>
+    <%} else { %>
+    <h2>There is no item like that! :(</h2>
+    <% } %>
+    <a href="javascript:history.back()">Back to category (<%= item.category_name %>)</a>
+  </body>
+</html>
