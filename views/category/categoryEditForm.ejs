@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit: <%= category.name %></title>
+</head>
+<body>
+    <h1>Edit category: <%= category.name %></h1>
+    <form action="/category/<%= category.id %>/edit" method="post">
+        <label for="title">Category name:</label>
+        <input type="text" name="title" id="title" value="<%= category.name %>">
+        <input type="submit" value="Submit changes">
+    </form>
+</body>
+</html>

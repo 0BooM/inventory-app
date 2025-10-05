@@ -10,7 +10,10 @@
     <% if (categories.length > 0) { %>
     <ul>
       <% categories.forEach(category => {%>
-      <li><a href="/category/<%= category.id %>"><%=category.name%></a></li>
+      <li>
+        <a href="/category/<%= category.id %>"><%=category.name%></a>
+        <a href="/category/<%=category.id%>/edit">Edit</a>
+      </li>
       <%});%>
     </ul>
     <% } else { %>

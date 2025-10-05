@@ -13,13 +13,39 @@ async function getCategoryWithItems(req, res) {
         if(!category){
             return res.status(404).send("Category not found");
         }
-        res.render("category", {category, items});
+        res.render("category/category", {category, items});
     } catch(err){
         res.status(500).send("Error fetching category or items");
     }
 }
 
+async function getCategoryEditForm(req, res) {
+    const id = req.params.id;
+    try{
+        const category = await db.getCategoryById(id);
+        if(!category){
+            res.status(404).send("Category not found");
+        }
+        res.render("category/categoryEditForm", {category});
+    } catch (err){
+        res.status(500).send("Error fetching category edit form");
+    }
+}
+
+async function postCategoryEditForm(req, res){
+    const id = req.params.id;
+    try {
+        const title = req.body.title;
+        await db.changeCategoryParams(title, id);
+        res.redirect("/");
+    } catch (err) {
+        res.status(500).send("Error fetching category edit form");
+    }
+}
+
 module.exports = {
     getCategories,
-    getCategoryWithItems
+    getCategoryWithItems,
+    getCategoryEditForm,
+    postCategoryEditForm,
 }
