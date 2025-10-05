@@ -23,10 +23,15 @@ async function deleteCategory(id) {
     await pool.query("DELETE FROM categories WHERE id = $1", [id]);
 }
 
+async function createCategory(name) {
+  await pool.query("INSERT INTO categories (name) VALUES ($1)", [name]);
+}
+
 module.exports = {
   getAllCategories,
   getCategoryById,
   getCategoryItems,
   changeCategoryParams,
-  deleteCategory
+  deleteCategory,
+  createCategory
 };
