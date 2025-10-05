@@ -15,7 +15,11 @@ async function changeItemParams(name, quantity, id) {
   await pool.query("UPDATE items SET name = $1, quantity = $2 WHERE id = $3", [name, quantity, id]);
 }
 
+async function deleteItem(id){
+  await pool.query("DELETE FROM items WHERE id = $1", [id])
+}
 module.exports = {
     getItem,
-    changeItemParams
+    changeItemParams,
+    deleteItem
 }
