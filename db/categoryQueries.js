@@ -12,7 +12,7 @@ async function getCategoryById(id){
 }
 
 async function getCategoryItems(id){
-    const { rows } = await pool.query("SELECT * FROM items WHERE category_id = ($1)", [id]);
+    const { rows } = await pool.query("SELECT * FROM items WHERE category_id = ($1) ORDER BY id", [id]);
     return rows;
 }
 

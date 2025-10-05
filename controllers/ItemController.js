@@ -7,12 +7,38 @@ async function getItemDetails(req, res) {
         if(!item){
             res.status(404).send("Item not found!");
         }
-        res.render("item", {item});
+        res.render("item/itemDescription", {item});
     } catch (err){
-        res.status(500).send("Error fetching category or items");
+        res.status(500).send("Error fetching item");
+    }
+}
+
+async function getItemEditForm(req, res) {
+    const id = req.params.id;
+    try{
+        const item = await db.getItem(id);
+        res.render("item/itemEditForm", {item});
+    } catch (err){
+        res.status(500).send("Error fetching item");
+    }
+}
+
+async function postItemEditForm(req, res) {
+    const id = req.params.id;
+    try {
+        const name = req.body.title;
+        const quantity = req.body.quantity;
+        await db.changeItemParams(name, quantity, id);
+
+        const item = await db.getItem(id);
+        res.redirect(`/category/${item.category_id}`);
+    } catch (err) {
+        res.status(500).send("Error fetching item");
     }
 }
 
 module.exports = {
     getItemDetails,
+    getItemEditForm,
+    postItemEditForm
 }
