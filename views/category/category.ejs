@@ -12,6 +12,8 @@
       <% items.forEach(item => { %>
       <li>
         <a href="../item/<%= item.id%>">Name: <%= item.name%>, Quantity: <%= item.quantity %></a>
+        <a href="../item/<%= item.id%>/edit">Edit</a>
+        <a href="../item/<%= item.id%>/delete">Delete</a>
       </li>
       <% }); %>
     </ul>

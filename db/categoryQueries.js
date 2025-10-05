@@ -19,10 +19,14 @@ async function getCategoryItems(id){
 async function changeCategoryParams(name, id){
     await pool.query("UPDATE categories SET name = $1 WHERE id = $2", [name, id]);
 }
+async function deleteCategory(id) {
+    await pool.query("DELETE FROM categories WHERE id = $1", [id]);
+}
 
 module.exports = {
   getAllCategories,
   getCategoryById,
   getCategoryItems,
-  changeCategoryParams
+  changeCategoryParams,
+  deleteCategory
 };

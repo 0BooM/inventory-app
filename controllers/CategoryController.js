@@ -43,9 +43,34 @@ async function postCategoryEditForm(req, res){
     }
 }
 
+async function getCategoryDeleteForm(req, res) {
+    const id = req.params.id;
+    try {
+      const category = await db.getCategoryById(id);
+      if (!category) {
+        res.status(404).send("Category not found");
+      }
+      res.render("category/categoryDeleteForm", { category });
+    } catch (err) {
+      res.status(500).send("Error fetching category edit form");
+    }
+}
+
+async function postCategoryDeleteForm(req, res) {
+    const id = req.params.id;
+    try{
+        await db.deleteCategory(id);
+        res.redirect("/");
+    } catch (error){
+        res.status(500).send("Error fetching category edit form");
+    }
+}
+
 module.exports = {
     getCategories,
     getCategoryWithItems,
     getCategoryEditForm,
     postCategoryEditForm,
+    getCategoryDeleteForm,
+    postCategoryDeleteForm
 }

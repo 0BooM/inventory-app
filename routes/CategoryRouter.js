@@ -12,4 +12,8 @@ CategoryRouter.get("/category/:id", CategoryController.getCategoryWithItems);
 CategoryRouter.get("/category/:id/edit", CategoryController.getCategoryEditForm);
 CategoryRouter.post("/category/:id/edit", CategoryController.postCategoryEditForm)
 
+//Delete category
+CategoryRouter.get("/category/:id/delete", CategoryController.getCategoryDeleteForm);
+CategoryRouter.post("/category/:id/delete", CategoryController.postCategoryDeleteForm);
+
 module.exports = CategoryRouter;
