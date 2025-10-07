@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add category</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Create new category</h1>
-    <form action="/category/create" method="post">
-        <label for="title">Category name:</label>
-        <input type="text" name="title" id="title">
-        <input type="submit" value="Create category">
-    </form>
-    <a href="javascript:history.back()">Go back</a>
+<body class="bg-blue-100 min-h-screen">
+    <%- include("../partials/header") %>
+<div class="max-w-xl mx-auto mt-10 bg-white rounded-lg shadow-lg p-8">
+  <h1 class="text-3xl font-bold text-blue-600 mb-6 text-center">Create New Category</h1>
+  <%- include("../partials/category-form", {
+    formAction: "/category/create",
+    buttonText: "Create category",
+    category: null,
+    inputDisabled: false
+  }) %>
+</div>
 </body>
 </html>

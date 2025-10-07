@@ -5,7 +5,8 @@ const PORT = 3000;
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 const categoryRouter = require("./routes/CategoryRouter");
 app.use("/", categoryRouter);
@@ -17,10 +18,9 @@ app.use((req, res) => {
   res.status(404).render("404");
 });
 
-
 app.listen(PORT, (error) => {
-    if(error){
-        throw error;
-    }
-    console.log("Listening on port:", PORT);
-})
+  if (error) {
+    throw error;
+  }
+  console.log("Listening on port:", PORT);
+});

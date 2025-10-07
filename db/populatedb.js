@@ -14,17 +14,17 @@ const ITEMS_TABLE = `CREATE TABLE IF NOT EXISTS items (
 `;
 
 const INSERT_CATEGORIES = `INSERT INTO categories (name) VALUES
-    ('pizza'),
-    ('pasta'),
-    ('dessert');`;
+    ('Cheese'),
+    ('Fruits'),
+    ('Vegetables');`;
 
 const INSERT_ITEMS = `INSERT INTO items (name, quantity, category_id) VALUES
-      ('Margherita', 10, 1),
-      ('Pepperoni', 8, 1),
-      ('Hawaiian', 5, 1),
-      ('Carbonara', 7, 2),
-      ('Bolognese', 6, 2),
-      ('Tiramisu', 4, 3);`;
+      ('Parmesan', 10, 1),
+      ('Gouda', 8, 1),
+      ('Mimolette', 5, 1),
+      ('Apple', 7, 2),
+      ('Banana', 6, 2),
+      ('Cucumber', 4, 3);`;
 
 async function main() {
   console.log("sending");

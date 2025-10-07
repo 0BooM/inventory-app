@@ -1,0 +1,22 @@
+<a
+  href="/category/<%= category.id %>"
+  class="category-card px-4 py-3 bg-gray-100 border-gray-300 border rounded-md flex flex-col hover:bg-blue-50 transition"
+>
+  <div class="mb-2 font-bold text-xl">📁 <%= category.name %></div>
+  <div
+    class="flex flex-col gap-3 sm:flex-row items-center justify-between mt-2"
+  >
+    <button
+      onclick="event.preventDefault(); event.stopPropagation(); window.location='/category/<%=category.id%>/edit';"
+      class="bg-green-600 text-white font-bold px-2.5 py-1 rounded-md hover:bg-green-800 transition"
+    >
+      Edit
+    </button>
+    <button
+      onclick="event.preventDefault(); event.stopPropagation(); window.location='/category/<%=category.id%>/delete';"
+      class="bg-red-600 text-white font-bold px-2.5 py-1 rounded-md hover:bg-red-800 transition"
+    >
+      Delete
+    </button>
+  </div>
+</a>

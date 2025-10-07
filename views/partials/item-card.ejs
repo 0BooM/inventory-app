@@ -1,0 +1,13 @@
+<div class="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+  <div>
+    <span class="font-semibold text-lg text-gray-800">Name:</span>
+    <span class="font-bold text-blue-600"><%= item.name %></span>
+    <span class="ml-4 font-semibold text-lg text-gray-800">Quantity:</span>
+    <span class="font-bold text-green-600"><%= item.quantity %></span>
+  </div>
+  <div class="flex gap-3 mt-4 md:mt-0">
+    <a href="/item/<%= item.id %>" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Details</a>
+    <a href="/item/<%= item.id %>/edit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">Edit</a>
+    <a href="/item/<%= item.id %>/delete" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">Delete</a>
+  </div>
+</div>

@@ -76,7 +76,7 @@ async function postCategoryCreateForm(req, res) {
     await db.createCategory(name);
     res.redirect("/");
   } catch (err) {
-    res.status(500).send("Error fetching category edit form");
+    res.status(500).send("Error fetching category create form");
   }
 }
 
