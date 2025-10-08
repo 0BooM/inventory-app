@@ -19,7 +19,9 @@
       >
         <%- include("../partials/category-form", { formAction:
         `/category/${category.id}/delete`, buttonText: "Delete", category,
-        inputDisabled: true }) %>
+        inputDisabled: true, oldInput: typeof oldInput !== "undefined" ?
+        oldInput : null, errors: typeof errors !== "undefined" ? errors : [] })
+        %>
       </form>
     </div>
   </body>

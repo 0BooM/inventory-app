@@ -13,8 +13,10 @@
         Create New Item
       </h1>
       <%- include("../partials/item-form", { formAction: "/item/create",
-      buttonText: "Create item", item: null, categories, inputDisabled: false })
-      %>
+      buttonText: "Create item", item: null, categories, inputDisabled: false,
+      selectedCategoryId: typeof selectedCategoryId !== "undefined" ?
+      selectedCategoryId : null, oldInput: typeof oldInput !== "undefined" ?
+      oldInput : null, errors: typeof errors !== "undefined" ? errors : [] }) %>
     </div>
   </body>
 </html>
